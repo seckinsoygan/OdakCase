@@ -23,6 +23,11 @@ namespace Business.Concrete
             return _repository.GetAll();
         }
 
+        public Product GetById(int id)
+        {
+            return _repository.Get(id);
+        }
+
         public void Update(Product product)
         {
             _repository.Update(product);

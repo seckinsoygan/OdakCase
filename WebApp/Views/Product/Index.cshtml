@@ -27,10 +27,10 @@
                 <td>@item.Image_Src</td>
                 <td>@item.SalesPrice</td>
                 <td>@item.Category_Id</td>
-                <td><a href=# class="btn btn-warning">Update</a></td>
-                <td><a href=# class="btn btn-danger">Delete</a></td>
+                <td><a href=/Update/@item.Id class="btn btn-warning">Update</a></td>
+                <td><a href=/Product/Delete/@item.Id class="btn btn-danger">Delete</a></td>
             </tr>
         }
     </tbody>
 </table>
-<a href="Add" class="btn btn-success">Yeni Ürün Ekle</a>
+<a href="/Product/Add" class="btn btn-success">Yeni Ürün Ekle</a>

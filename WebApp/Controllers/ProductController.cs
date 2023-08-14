@@ -25,5 +25,11 @@ namespace WebApp.Controllers
             productManager.Add(product);
             return RedirectToAction("Index");
         }
+        public IActionResult Delete(int id)
+        {
+            var product = productManager.GetById(id);
+            productManager.Delete(product);
+            return RedirectToAction("Index");
+        }
     }
 }

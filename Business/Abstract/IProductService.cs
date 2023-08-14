@@ -8,5 +8,6 @@ namespace Business.Abstract
         void Add(Product product);
         void Delete(Product product);
         void Update(Product product);
+        Product GetById(int id);
     }
 }
