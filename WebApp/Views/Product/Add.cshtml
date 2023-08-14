@@ -1,0 +1,24 @@
+﻿@model Entities.Product
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<h1>Add Product Page</h1>
+<br />
+@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form" }))
+{
+    <div class="form-group">
+        @Html.Label("Product Name")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        <br>
+        @Html.Label("Image")
+        @Html.TextBoxFor(x => x.Image_Src, new { @class = "form-control" })
+        <br>
+        @Html.Label("Sales Price")
+        @Html.TextBoxFor(x => x.SalesPrice, new { @class = "form-control" })
+        <br>
+        @Html.Label("Category Id")
+        @Html.TextBoxFor(x => x.Category_Id, new { @class = "form-control" })
+        <br>
+        <button class="btn btn-primary">Kaydet</button>
+    </div>
+}

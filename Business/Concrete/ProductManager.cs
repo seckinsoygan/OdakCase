@@ -1,36 +1,31 @@
 ﻿using Business.Abstract;
-using DataAccess.Abstract;
+using DataAccess.Shared;
 using Entities;
 
 namespace Business.Concrete
 {
     public class ProductManager : IProductService
     {
-        IProductDal _productDal;
-
-        public ProductManager(IProductDal productDal)
-        {
-            _productDal = productDal;
-        }
+        EfEntityRepository<Product> _repository = new EfEntityRepository<Product>();
 
         public void Add(Product product)
         {
-            _productDal.Add(product);
+            _repository.Add(product);
         }
 
         public void Delete(Product product)
         {
-            _productDal.Delete(product);
+            _repository.Delete(product);
         }
 
         public List<Product> GetAll()
         {
-            return _productDal.GetAll();
+            return _repository.GetAll();
         }
 
         public void Update(Product product)
         {
-            _productDal.Update(product);
+            _repository.Update(product);
         }
     }
 }

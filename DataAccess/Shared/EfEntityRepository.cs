@@ -1,54 +1,43 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Linq.Expressions;
 
 namespace DataAccess.Shared
 {
     public class EfEntityRepository<T> : IEntityRepository<T> where T : class
     {
+        AppDbContext context = new AppDbContext();
+        DbSet<T> _object;
+
+        public EfEntityRepository()
+        {
+            _object = context.Set<T>();
+        }
+
         public void Add(T entity)
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                var addedEntity = context.Entry(entity);
-                addedEntity.State = EntityState.Added;
-                context.SaveChanges();
-            }
+            _object.Add(entity);
+            context.SaveChanges();
         }
 
         public void Delete(T entity)
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                var deletedEntity = context.Entry(entity);
-                deletedEntity.State = EntityState.Deleted;
-                context.SaveChanges();
-            }
+            _object.Remove(entity);
+            context.SaveChanges();
         }
 
-        public T Get(Expression<Func<T, bool>> filter)
+        public T Get(int id)
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                return context.Set<T>().SingleOrDefault(filter);
-            }
+            return _object.Find(id);
         }
 
-        public List<T> GetAll(Expression<Func<T, bool>> filter = null)
+        public List<T> GetAll()
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                return filter == null ? context.Set<T>().ToList() : context.Set<T>().Where(filter).ToList();
-            }
+            return _object.ToList();
         }
 
         public void Update(T entity)
         {
-            using (AppDbContext context = new AppDbContext())
-            {
-                var updatedEntity = context.Entry(entity);
-                updatedEntity.State = EntityState.Modified;
-                context.SaveChanges();
-            }
+            _object.Update(entity);
+            context.SaveChanges();
         }
     }
 }
