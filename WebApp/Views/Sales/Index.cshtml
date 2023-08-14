@@ -10,12 +10,12 @@
     <thead>
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Product Id</th>
+            <th scope="col">Product</th>
             <th scope="col">Quantity</th>
             <th scope="col">Sales Price</th>
             <th scope="col">Date</th>
             <th scope="col">Amount</th>
-            <th scope="col">Customer Id</th>
+            <th scope="col">Customer Title</th>
             <th scope="col">List Price</th>
             <th scope="col">Discountrate</th>
             <th scope="col">Delete</th>
@@ -26,12 +26,12 @@
         {
             <tr>
                 <th scope="row">@item.Id</th>
-                <td>@item.Product_Id</td>
+                <td>@item.Product.Name</td>
                 <td>@item.Quantity</td>
                 <td>@item.SalesPrice</td>
                 <td>@item.Date</td>
                 <td>@item.Amount</td>
-                <td>@item.Customer_Id</td>
+                <td>@item.Customer.CustomerTitle</td>
                 <td>@item.ListPrice</td>
                 <td>%@item.Discountrate</td>
                 <td><a href=/Sales/Delete/@item.Id class="btn btn-danger">Delete</a></td>

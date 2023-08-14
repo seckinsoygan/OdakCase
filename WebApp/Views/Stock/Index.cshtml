@@ -9,7 +9,7 @@
 <table class="table table-hover">
     <thead>
         <tr>
-            <th scope="col">Product Id</th>
+            <th scope="col">Product</th>
             <th scope="col">Quantity</th>
             <th scope="col">Date</th>
             <th scope="col">Update</th>
@@ -19,7 +19,7 @@
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.Product_Id</td>
+                <td>@item.Product.Name</td>
                 <td>@item.Quantity</td>
                 <td>@item.Date</td>
                 <td><a href=/Update/@item.Id class="btn btn-warning">Update</a></td>

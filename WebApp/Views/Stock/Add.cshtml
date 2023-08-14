@@ -1,0 +1,21 @@
+﻿@model Entities.Stock
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<h1>Add Product Page</h1>
+<br />
+@using (Html.BeginForm("Add", "Product", FormMethod.Post, new { @class = "form" }))
+{
+    <div class="form-group">
+        @Html.Label("Product")
+        @Html.DropDownListFor(x=>x.Product_Id,(List<SelectListItem>)ViewBag.vlp , new { @class ="form-control"})
+        <br>
+        @Html.Label("Quantity")
+        @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
+        <br>
+        @Html.Label("Date")
+        @Html.TextBoxFor(x => x.Date,"{0:2023-01-01}", new { @class = "form-control",type="date" })
+        <br>
+        <button class="btn btn-primary">Kaydet</button>
+    </div>
+}

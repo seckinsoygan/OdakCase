@@ -7,10 +7,19 @@ namespace WebApp.Controllers
     public class SalesController : Controller
     {
         SalesManager salesManager = new SalesManager();
+        ProductManager productManager = new ProductManager();
+        CustomerManager customerManager = new CustomerManager();
 
         public IActionResult Index()
         {
             var sales = salesManager.GetAll();
+            foreach (var item in sales)
+            {
+                var product = productManager.GetById(item.Product_Id);
+                var customer = customerManager.GetById(item.Customer_Id);
+                item.Product = product;
+                item.Customer = customer;
+            }
             return View(sales);
         }
         [HttpGet]

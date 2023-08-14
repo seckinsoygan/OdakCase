@@ -17,6 +17,11 @@ namespace Business.Concrete
             _repository.Delete(category);
         }
 
+        public Category Get(int id)
+        {
+            return _repository.Get(id);
+        }
+
         public List<Category> GetAll()
         {
             return _repository.GetAll();

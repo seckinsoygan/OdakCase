@@ -7,10 +7,16 @@ namespace WebApp.Controllers
     public class ProductController : Controller
     {
         ProductManager productManager = new ProductManager();
+        CategoryManager categoryManager = new CategoryManager();
 
         public IActionResult Index()
         {
             var products = productManager.GetAll();
+            foreach (var item in products)
+            {
+                var category = categoryManager.Get(item.Category_Id);
+                item.Category = category;
+            }
             return View(products);
         }
 
