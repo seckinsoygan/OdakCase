@@ -4,13 +4,13 @@ namespace Entities
 {
     public class Sales : BaseEntity
     {
-        public int ProductId { get; set; }
-        public float Quantity { get; set; }
-        public float SalePrice { get; set; }
-        public DateTime Date { get; set; }
-        public float Amount { get; set; }
-        public int CustomerId { get; set; }
-        public float ListPrice { get; set; }
-        public float Discountrate { get; set; }
+        public int? Product_Id { get; set; }
+        public double? Quantity { get; set; }
+        public double? SalesPrice { get; set; }
+        public DateTime? Date { get; set; }
+        public double? Amount { get; set; }
+        public int? Customer_Id { get; set; }
+        public double? ListPrice { get; set; }
+        public double? Discountrate { get; set; }
     }
 }
