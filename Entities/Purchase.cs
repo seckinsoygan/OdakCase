@@ -4,11 +4,11 @@ namespace Entities
 {
     public class Purchase : BaseEntity
     {
-        public float Quantity { get; set; }
-        public float Price { get; set; }
-        public float Amount { get; set; }
-        public DateTime Date { get; set; }
-        public int ProductId { get; set; }
-        public int CustomerId { get; set; }
+        public double? Quantity { get; set; }
+        public double? Price { get; set; }
+        public double? Amount { get; set; }
+        public DateTime? Date { get; set; }
+        public int? Product_Id { get; set; }
+        public int? Customer_Id { get; set; }
     }
 }

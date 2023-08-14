@@ -4,8 +4,8 @@ namespace Entities
 {
     public class Stock : BaseEntity
     {
-        public int ProductId { get; set; }
-        public float Quantity { get; set; }
-        public DateTime Date { get; set; }
+        public int? Product_Id { get; set; }
+        public double? Quantity { get; set; }
+        public DateTime? Date { get; set; }
     }
 }

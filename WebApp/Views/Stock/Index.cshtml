@@ -1,0 +1,30 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using Entities;
+@model List<Stock>;
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">Product Id</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Date</th>
+            <th scope="col">Update</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Product_Id</td>
+                <td>@item.Quantity</td>
+                <td>@item.Date</td>
+                <td><a href=/Update/@item.Id class="btn btn-warning">Update</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<a href="/Stock/Add" class="btn btn-success">Add New Stock</a>

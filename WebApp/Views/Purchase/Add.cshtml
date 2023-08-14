@@ -1,32 +1,29 @@
-﻿@model Entities.Sales
+﻿@model Entities.Purchase
 
 <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
 
 <h1>Add Product Page</h1>
 <br />
-@using (Html.BeginForm("Add", "Sales", FormMethod.Post, new { @class = "form" }))
+@using (Html.BeginForm("Add", "Purchase", FormMethod.Post, new { @class = "form" }))
 {
     <div class="form-group">
         @Html.Label("Product Id")
         @Html.TextBoxFor(x => x.Product_Id, new { @class = "form-control" })
         <br>
+        @Html.Label("Customer Id")
+        @Html.TextBoxFor(x => x.Customer_Id, new { @class = "form-control" })
+        <br>
         @Html.Label("Quantity")
         @Html.TextBoxFor(x => x.Quantity, new { @class = "form-control" })
         <br>
-        @Html.Label("Sales Price")
-        @Html.TextBoxFor(x => x.SalesPrice, new { @class = "form-control" })
+        @Html.Label("Price")
+        @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
         <br>
         @Html.Label("Date")
         @Html.TextBoxFor(x => x.Date,"{0:2023-01-01}", new { @class = "form-control",type="date" })
         <br>
         @Html.Label("Amount")
         @Html.TextBoxFor(x => x.Amount, new { @class = "form-control" })
-        <br>
-        @Html.Label("Customer Id")
-        @Html.TextBoxFor(x => x.Customer_Id, new { @class = "form-control" })
-        <br>
-        @Html.Label("List Price")
-        @Html.TextBoxFor(x => x.ListPrice, new { @class = "form-control" })
         <br>
         <button class="btn btn-primary">Save</button>
     </div>
