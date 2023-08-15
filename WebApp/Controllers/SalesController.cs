@@ -1,6 +1,9 @@
 ﻿using Business.Concrete;
+using Business.ValidationRules;
 using Entities;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
+using ValidationResult = FluentValidation.Results.ValidationResult;
 
 namespace WebApp.Controllers
 {
@@ -10,6 +13,7 @@ namespace WebApp.Controllers
         ProductManager productManager = new ProductManager();
         CustomerManager customerManager = new CustomerManager();
         StockManager stockManager = new StockManager();
+        StockValidator stockValidator = new StockValidator();
         public IActionResult Index()
         {
             var sales = salesManager.GetAll();
@@ -34,7 +38,19 @@ namespace WebApp.Controllers
             sales.Discountrate = discountRate;
             var productStock = stockManager.GetByProductId(sales.Product_Id);
             productStock.Quantity -= sales.Quantity;
-            salesManager.Add(sales);
+            ValidationResult validationResult = stockValidator.Validate(productStock);
+            if (!validationResult.IsValid)
+            {
+                foreach (ValidationFailure error in validationResult.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+            }
+            else
+            {
+                stockManager.Update(productStock);
+                salesManager.Add(sales);
+            }
             return RedirectToAction("Index");
         }
         public IActionResult Delete(int id)

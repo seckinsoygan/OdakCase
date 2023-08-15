@@ -7,7 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="DevExpress.CrossPlatform.Printing.DrawingEngine" Version="1.0.14" />
     <PackageReference Include="DevExpress.Data" Version="23.1.4" />
+    <PackageReference Include="DevExpress.Data.de" Version="23.1.4" />
     <PackageReference Include="DevExpress.Xpo" Version="23.1.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.21" />
