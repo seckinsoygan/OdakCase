@@ -24,6 +24,7 @@ namespace WebApp.Controllers
         public IActionResult Add()
         {
             return View();
+
         }
         [HttpPost]
         public IActionResult Add(Product product)
@@ -35,6 +36,18 @@ namespace WebApp.Controllers
         {
             var product = productManager.GetById(id);
             productManager.Delete(product);
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public IActionResult Update(int id)
+        {
+            var productValue = productManager.GetById(id);
+            return View(productValue);
+        }
+        [HttpPost]
+        public IActionResult Update(Product product)
+        {
+            productManager.Update(product);
             return RedirectToAction("Index");
         }
     }

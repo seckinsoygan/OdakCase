@@ -1,0 +1,26 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model Entities.Product
+<br />
+<h2>Product Update</h2>
+@using (Html.BeginForm("Update", "Product", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Product Name")
+        @Html.TextBoxFor(x=>x.Name , new {@class = "form-control"})
+        <br><br>
+        @Html.Label("Image")
+        @Html.TextBoxFor(x=>x.Image_Src , new {@class = "form-control"})
+        <br><br>
+        @Html.Label("Sale Price")
+        @Html.TextAreaFor(x=>x.SalesPrice , new {@class = "form-control"})
+        <br><br>
+        @Html.Label("Category")
+        @Html.TextAreaFor(x=>x.Category_Id , new {@class = "form-control"})
+        <br>
+        <button class="btn btn-success ">Update</button>
+    </div>
+}

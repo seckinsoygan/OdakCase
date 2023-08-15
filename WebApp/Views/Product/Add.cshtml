@@ -10,15 +10,15 @@
         @Html.Label("Product Name")
         @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
         <br>
+        @Html.Label("Category Name")
+        @Html.TextAreaFor(x=>x.Category_Id , new {@class = "form-control"})
+        <br>
         @Html.Label("Image")
         @Html.TextBoxFor(x => x.Image_Src, new { @class = "form-control" })
         <br>
         @Html.Label("Sales Price")
         @Html.TextBoxFor(x => x.SalesPrice, new { @class = "form-control" })
-        <br>
-        @Html.Label("Category Id")
-        @Html.TextBoxFor(x => x.Category_Id, new { @class = "form-control" })
-        <br>
+        <br> 
         <button class="btn btn-primary">Kaydet</button>
     </div>
 }

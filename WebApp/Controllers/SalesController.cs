@@ -9,7 +9,7 @@ namespace WebApp.Controllers
         SalesManager salesManager = new SalesManager();
         ProductManager productManager = new ProductManager();
         CustomerManager customerManager = new CustomerManager();
-
+        StockManager stockManager = new StockManager();
         public IActionResult Index()
         {
             var sales = salesManager.GetAll();
@@ -32,6 +32,8 @@ namespace WebApp.Controllers
         {
             var discountRate = ((sales.ListPrice - sales.SalesPrice) / sales.ListPrice) * 100;
             sales.Discountrate = discountRate;
+            var productStock = stockManager.GetByProductId(sales.Product_Id);
+            productStock.Quantity -= sales.Quantity;
             salesManager.Add(sales);
             return RedirectToAction("Index");
         }
